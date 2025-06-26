@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
       keywords,
       location_code,
       language_code,
-      limit: 3,
+      limit: 1,
     },
   ];
 
