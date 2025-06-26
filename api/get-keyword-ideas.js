@@ -38,7 +38,8 @@ module.exports = async (req, res) => {
   try {
     const response = await axios({
       method: "post",
-      url: "https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_ideas/live",
+      url: "https://api.dataforseo.com/v3/dataforseo_labs/google/related_keywords/live",
+      // url: "https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_ideas/live",
       auth: {
         username: API_USERNAME,
         password: API_PASSWORD,
