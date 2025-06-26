@@ -15,9 +15,9 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { keywords, location_code, language_code = "en" } = req.body;
+  const { keyword, location_code, language_code = "en" } = req.body;
 
-  if (!keywords || !location_code) {
+  if (!keyword || !location_code) {
     return res
       .status(400)
       .json({ error: "keywords and location_code are required" });
@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
 
   const post_array = [
     {
-      keywords,
+      keyword,
       location_code,
       language_code,
       limit: 3,
