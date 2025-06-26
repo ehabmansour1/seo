@@ -1,12 +1,13 @@
+require("dotenv").config();
 const express = require("express");
 const axios = require("axios");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-const API_USERNAME = "support@rankcoda.com";
-const API_PASSWORD = "3945f939eaf6483f";
+const API_USERNAME = process.env.API_USERNAME;
+const API_PASSWORD = process.env.API_PASSWORD;
 
 app.post("/get-keyword-ideas", async (req, res) => {
   try {
