@@ -3,7 +3,7 @@ name: Deploy Node.js Project to Hostinger
 on:
   push:
     branches:
-      - main # or your default branch
+      - main
 
 jobs:
   deploy:
@@ -21,10 +21,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Prepare deployment files
-        run: |
-          mkdir deploy
-          cp -r index.js package*.json api .env deploy/
+      - name: Remove node_modules from deploy
+        run: rm -rf node_modules
 
       - name: Deploy to Hostinger via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -32,5 +30,5 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./deploy/
-          server-dir: /path/to/your/server/folder/
+          local-dir: ./
+          server-dir: /
